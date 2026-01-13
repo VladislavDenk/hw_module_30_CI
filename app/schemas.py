@@ -1,6 +1,7 @@
 from typing import List, Optional, Annotated
 from pydantic import BaseModel, PositiveInt, Field
 
+
 class BaseRecipe(BaseModel):
 
     title_dishes: str
@@ -12,6 +13,5 @@ class BaseRecipe(BaseModel):
 
 class RecipeSchema(BaseRecipe):
     id: int
-
     class Config:
         orm_mode = True
