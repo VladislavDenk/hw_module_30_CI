@@ -80,4 +80,5 @@ async def get_recipes_by_id(recipe_id: int, session: SessionDep):
 
 
 if __name__ == '__main__':
+    print("Запуск приложения")
     uvicorn.run('main:app', reload=True)
