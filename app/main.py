@@ -15,7 +15,7 @@ SessionDep = Annotated[AsyncSession, Depends(get_session)]
 TABLE = models.RecipeModel
 
 logging.basicConfig(
-    level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -47,12 +47,13 @@ async def add_recipes(data: schemas.BaseRecipe, session: SessionDep):
     session.add(new_recipe)
     await session.commit()
     
+
     return {"status": "Рецепт успешно добавлен"}
 
 
 @app.get("/recipes", summary="Получить все рецепты", tags=["Рецепты"])
 async def get_recipes(session: SessionDep):
-    query = (select(TABLE).order_by(desc(TABLE.number_views), asc(TABLE.cooking_time)))
+    query = select(TABLE).order_by(desc(TABLE.number_views), asc(TABLE.cooking_time))
     result = await session.execute(query)
     return result.scalars().all()
 
@@ -64,7 +65,7 @@ async def get_recipes_by_id(recipe_id: int, session: SessionDep):
     result = new_session.scalars().first()
 
     request = select((TABLE.number_views)).where(TABLE.id == recipe_id)
-    new_session = await session.execute(request) 
+    new_session = await session.execute(request)
     number_view = new_session.scalars().one()
     new_number_view = number_view + 1
 
@@ -80,4 +81,3 @@ async def get_recipes_by_id(recipe_id: int, session: SessionDep):
 if __name__ == "__main__":
     print("Запуск приложения")
     uvicorn.run('main:app', reload=True)
-    

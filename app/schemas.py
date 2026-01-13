@@ -13,5 +13,6 @@ class BaseRecipe(BaseModel):
 
 class RecipeSchema(BaseRecipe):
     id: int
+
     class Config:
         orm_mode = True
