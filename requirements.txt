@@ -6,3 +6,6 @@ isort==7.0.0
 mypy==1.19.1
 pytest==9.0.1
 uvicorn==0.40.0
+fastapi==0.128.0
+pydantic==2.12.5
+SQLAlchemy==2.0.45
