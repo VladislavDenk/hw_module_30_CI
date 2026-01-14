@@ -29,4 +29,4 @@ jobs:
     - name: Analysing the code isort
       run: isort --check-only --diff --profile black $(git ls-files '*.py')
     - name: Analysing the code flake8
-      run: flake8 $(git ls-files '*.py')
+      run: flake8 --max-line-length 88 $(git ls-files '*.py')
