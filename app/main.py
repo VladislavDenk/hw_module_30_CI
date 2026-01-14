@@ -1,6 +1,6 @@
 import logging
-from typing import Annotated
 from contextlib import asynccontextmanager
+from typing import Annotated
 
 import models
 import schemas
