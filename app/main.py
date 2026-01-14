@@ -46,7 +46,6 @@ async def add_recipes(data: schemas.BaseRecipe, session: SessionDep):
     )
     session.add(new_recipe)
     await session.commit()
-    
 
     return {"status": "Рецепт успешно добавлен"}
 
@@ -80,4 +79,4 @@ async def get_recipes_by_id(recipe_id: int, session: SessionDep):
 
 if __name__ == "__main__":
     print("Запуск приложения")
-    uvicorn.run('main:app', reload=True)
+    uvicorn.run("main:app", reload=True)
