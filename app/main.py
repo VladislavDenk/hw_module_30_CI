@@ -2,14 +2,12 @@ import logging
 from typing import Annotated
 from contextlib import asynccontextmanager
 
-
-import uvicorn
-from fastapi import FastAPI, Depends
-from sqlalchemy import select, update, desc, asc
-
 import models
 import schemas
-from database import get_session, AsyncSession, engine
+import uvicorn
+from database import AsyncSession, engine, get_session
+from fastapi import Depends, FastAPI
+from sqlalchemy import asc, desc, select, update
 
 SessionDep = Annotated[AsyncSession, Depends(get_session)]
 TABLE = models.RecipeModel

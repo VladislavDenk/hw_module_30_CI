@@ -1,5 +1,5 @@
-from typing import List, Optional, Annotated
 from pydantic import BaseModel, PositiveInt, Field
+from typing import Annotated, List, Optional
 
 
 class BaseRecipe(BaseModel):
