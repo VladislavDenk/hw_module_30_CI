@@ -2,7 +2,6 @@ from database import Base
 from sqlalchemy import Column, Integer, String, Text
 
 
-
 class RecipeModel(Base):
     __tablename__ = "recipes"
 
